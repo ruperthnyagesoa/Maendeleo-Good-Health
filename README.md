@@ -54,6 +54,5 @@ Maendeleo Good Health is an AI-powered nutritionist tool that revolutionizes the
    ```bash
    streamlit run app.py
     ```
-  ## UI ![Screenshot (9)]()
- ## Response ![Screenshot (8)]()
+  ## UI ![Screenshot (9)](mgh.png)
 

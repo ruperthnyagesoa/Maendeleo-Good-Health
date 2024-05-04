@@ -8,7 +8,7 @@ import os
 import google.generativeai as genai
 from PIL import Image
 
-genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+genai.configure(api_key=os.getenv("AIzaSyAOSo4o2Ec6dOwyJFpK2cA82fozG1xzE7A"))
 
 ## Function to load Google Gemini Pro Vision API And get response
 
@@ -36,45 +36,8 @@ def input_image_setup(uploaded_file):
 ##initialize our streamlit app
 
 st.set_page_config(page_title="Maendeleo Good Health")
-st.title("Maendeleo Good Health")
-st.subheader ('Upload food pic, find out total # of calaroies, whether its good or bad for health')
 
-# Footer
-st.markdown("""
-<style>
-.footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: #000000; /* Black background color */
-    color: #ffffff; /* White text color */
-    text-align: center;
-    padding: 10px;
-}
-</style>
-""", unsafe_allow_html=True)
-
-st.markdown("---")
-st.markdown('<p class="footer">Generative AI : Python-Langchain Application <br>  Created by Ruperth Nyagesoa <br> (https://pathsonthego.vercel.app)</p>', unsafe_allow_html=True)
-
-hide_streamlit_style = """
-            <style>
-
-            [data-testid="stToolbar"] {visibility: hidden;}
-            .reportview-container {
-            margin-top: -2em;
-        }
-            #MainMenu {visibility: hidden;}
-            .stDeployButton {display:none;}
-            #stDecoration {display:none;}
-            footer {visibility: hidden;}
-            div.embeddedAppMetaInfoBar_container__DxxL1 {visibility: hidden;}
-            header {visibility: hidden;}
-            </style>
-            """
-st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
-
+st.header("Maendeleo Good Health")
 input=st.text_input("Input Prompt: ",key="input")
 uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
 image=""   
@@ -86,18 +49,16 @@ if uploaded_file is not None:
 submit=st.button("Tell me the total calories")
 
 input_prompt="""
-You are an expert in nutritionist where you need to see the food items from the image
-               and calculate the total calories, also provide the details of every food items with calories intake
-               is below format
+As a nutritionist AI, your task is to analyze images containing various food items to calculate the total calorie content. 
+Your goal is to provide detailed information on each food item, including its name and calorie intake. 
+Your analysis should be presented in a structured format that includes the total calories for all items and a breakdown of calories for each food item. 
+Your analysis will help users make informed dietary choices and maintain a healthy lifestyle.
 
                1. Item 1 - no of calories
                2. Item 2 - no of calories
                ----
                ----
-        Finally you can also mention whether the food is healthy or not and also 
-        mention the 
-        precentage split of the ratio of carbohydrates, fats, fibers, sugar and other important
-        things required in our diet
+
 
 """
 
