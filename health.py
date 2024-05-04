@@ -1,4 +1,4 @@
-### Health Management APP
+### Maendeleo Good Health
 from dotenv import load_dotenv
 
 load_dotenv() ## load all the environment variables
@@ -32,15 +32,35 @@ def input_image_setup(uploaded_file):
         return image_parts
     else:
         raise FileNotFoundError("No file uploaded")
-
+    
 ##initialize our streamlit app
 
 st.set_page_config(page_title="Maendeleo Good Health")
+st.title("Maendeleo Good Health")
+st.subheader ('Upload food pic, find out total # of calaroies, whether its good or bad for health')
 
-st.header("Maendeleo Good Health")
-st.caption('Python-Langchain Application created by Ruperth Nyagesoa :sunglasses:')
+# Footer
+st.markdown("""
+<style>
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #000000; /* Black background color */
+    color: #ffffff; /* White text color */
+    text-align: center;
+    padding: 10px;
+}
+</style>
+""", unsafe_allow_html=True)
+
+st.markdown("---")
+st.markdown('<p class="footer">Generative AI : Python-Langchain Application <br>  Created by Ruperth Nyagesoa <br> (https://pathsonthego.vercel.app)</p>', unsafe_allow_html=True)
+
 hide_streamlit_style = """
             <style>
+
             [data-testid="stToolbar"] {visibility: hidden;}
             .reportview-container {
             margin-top: -2em;
@@ -69,6 +89,7 @@ input_prompt="""
 You are an expert in nutritionist where you need to see the food items from the image
                and calculate the total calories, also provide the details of every food items with calories intake
                is below format
+
                1. Item 1 - no of calories
                2. Item 2 - no of calories
                ----
@@ -77,6 +98,7 @@ You are an expert in nutritionist where you need to see the food items from the 
         mention the 
         precentage split of the ratio of carbohydrates, fats, fibers, sugar and other important
         things required in our diet
+
 """
 
 ## If submit button is clicked
